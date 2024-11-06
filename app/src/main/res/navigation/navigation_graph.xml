@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigaton_graph"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.wealthguard.ui.main.DashboardFragment"
+        android:label="dashboard_fragment"
+        tools:layout="@layout/dashboard_fragment" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_addTransactionFragment"
+            app:destination="@id/addTransactionFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_showTransactionsFragment"
+            app:destination="@id/showTransactionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/incomeFragment"
+        android:name="com.example.wealthguard.ui.main.IncomeFragment"
+        android:label="income_fragment"
+        tools:layout="@layout/income_fragment" >
+        <action
+            android:id="@+id/action_incomeFragment_to_addTransactionFragment"
+            app:destination="@id/addTransactionFragment" />
+        <argument
+            android:name="Transacs"
+            app:argType="com.example.wealthguard.transaction.Transacs" />
+        <action
+            android:id="@+id/action_incomeFragment_to_showTransactionsFragment"
+            app:destination="@id/showTransactionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/analyticsFragment"
+        android:name="com.example.wealthguard.ui.main.AnalyticsFragment"
+        android:label="analytics_fragment"
+        tools:layout="@layout/analytics_fragment" >
+        <action
+            android:id="@+id/action_analyticsFragment_to_addTransactionFragment"
+            app:destination="@id/addTransactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/budgetFragment2"
+        android:name="com.example.wealthguard.ui.main.BudgetFragment"
+        android:label="budget_fragment"
+        tools:layout="@layout/budget_fragment" />
+    <fragment
+        android:id="@+id/addTransactionFragment"
+        android:name="com.example.wealthguard.ui.main.AddTransactionFragment"
+        android:label="add_transaction_fragment"
+        tools:layout="@layout/add_transaction_fragment" >
+        <action
+            android:id="@+id/action_addTransactionFragment_to_expenseFragment"
+            app:destination="@id/expenseFragment"
+            app:popUpTo="@id/expenseFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_addTransactionFragment_to_incomeFragment"
+            app:destination="@id/incomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/expenseFragment"
+        android:name="com.example.wealthguard.ui.main.ExpenseFragment"
+        android:label="ExpenseFragment" >
+        <action
+            android:id="@+id/action_expenseFragment_to_addTransactionFragment"
+            app:destination="@id/addTransactionFragment" />
+        <argument
+            android:name="Transacs"
+            app:argType="com.example.wealthguard.transaction.Transacs" />
+        <action
+            android:id="@+id/action_expenseFragment_to_budgetFragment2"
+            app:destination="@id/budgetFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/showTransactionsFragment"
+        android:name="com.example.wealthguard.ui.main.showTransactionsFragment"
+        android:label="show_transactions_fragment"
+        tools:layout="@layout/show_transactions_fragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.wealthguard.ui.main.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.wealthguard.ui.main.SignUpFragment"
+        android:label="sign_up_fragment"
+        tools:layout="@layout/sign_up_fragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+</navigation>
